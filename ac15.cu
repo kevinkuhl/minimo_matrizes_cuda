@@ -83,7 +83,7 @@ int main(int argc,char **argv)
 
         //copia arquivos do host para o device
         cudaMemcpyAsync(mA_d,mA_h,(dimA[0]*dimA[1]*sizeof(int)), cudaMemcpyHostToDevice, stream1);
-        cudaMemcpyAsync(mB_d,mB_h,(dimB[0]*dimA[1]*sizeof(int)), cudaMemcpyHostToDevice, stream2);
+        cudaMemcpyAsync(mB_d,mB_h,(dimB[0]*dimB[1]*sizeof(int)), cudaMemcpyHostToDevice, stream2);
 
         encontraMenor <<<blocksPerGridA,threadsPerBlock,0,stream1>>>(mA_d,menorA_d,dimA[0]*dimA[1]);
         cudaMemcpy(menorA_h,menorA_d,sizeof(int), cudaMemcpyDeviceToHost);
@@ -102,6 +102,7 @@ int main(int argc,char **argv)
                 for(j=0;j<dimA[1];j++)
                         printf("%d ", mA_h[i*dimA[1]+j]);
                 printf("\n\n");
+
         printf("Matriz B - Flatten\n");
         for(i=0;i<dimB[0];i++)
                 for(j=0;j<dimB[1];j++)
