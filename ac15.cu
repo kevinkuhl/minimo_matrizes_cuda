@@ -119,7 +119,7 @@ int main(int argc,char **argv)
 
         // Imprime os resultados
         printf("%d\n", *menorA_h);
-        printf("%d", *menorB_h);
+        printf("%d\n", *menorB_h);
 
         // Libera o espaco alocado para as variaveis no host
         cudaFreeHost(menorA_h);
