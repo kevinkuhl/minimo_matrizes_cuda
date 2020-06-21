@@ -43,18 +43,13 @@ int main(int argc,char **argv)
         fscanf(file,"%d",&dimA[1]);
         fscanf(file,"%d",&dimB[0]);
         fscanf(file,"%d",&dimB[1]);
-        //printf("%d %d \n %d %d\n" ,dimA[0], dimA[1], dimB[0], dimB[1]);
-        //alocando matrizes e retorno
-        //mA_h=(int* )malloc(dimA[0]*dimA[1]*sizeof(int));
-        //mB_h=(int* )malloc(dimB[0]*dimB[1]*sizeof(int));
-        //menor_h=(int *) malloc(1*sizeof(int));
 
         cudaMallocHost((void**)&mA_h,(dimA[0])*dimA[1]*(sizeof(int)));
         cudaMallocHost((void**)&mB_h,(dimB[0])*dimB[1]* (sizeof(int)));
-        menorA_h=(int *) malloc(1*sizeof(int));
-        menorB_h=(int *) malloc(1*sizeof(int));
-        //cudaMallocHost((void**)&menorA_h,sizeof(int));
-        //cudaMallocHost((void**)&menorB_h,sizeof(int));
+        // menorA_h=(int *) malloc(1*sizeof(int));
+        // menorB_h=(int *) malloc(1*sizeof(int));
+        cudaMallocHost((void**)&menorA_h,sizeof(int));
+        cudaMallocHost((void**)&menorB_h,sizeof(int));
 
 
 
@@ -122,23 +117,6 @@ int main(int argc,char **argv)
 
         cudaStreamDestroy(stream1);
         cudaStreamDestroy(stream2);
-
-        //chama a função com o stream
-        //encontraMenor <<<BPG,TPB>>> (mA_d,menor_d,dimA[0]*dimA[1]);
-        //
-        //Copia o resultado da soma de volta para o host
-        //cudaMemcpy(menor_h,menor_d,sizeof(int), cudaMemcpyDeviceToHost);
-        //sincroniza os valores
-        //cudaStreamSynchronize(stream);
-        //printf("Menor elemento da matriz A\n");
-        //printf("%d\n\n",*menor_h);
-        //imprime
-        //free(menor_h);
-        //free(mA_h);
-        //free(mB_h);
-        //cudaFree(menor_d);
-        //Desaloca os vetores no device
-        //cudaFree(mB_d);
-        //cudaFree(mA_d);
+        
         exit(0);
 }
