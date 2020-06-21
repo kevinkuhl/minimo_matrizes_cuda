@@ -85,10 +85,10 @@ int main(int argc,char **argv)
         cudaMemcpyAsync(mA_d,mA_h,(dimA[0]*dimA[1]*sizeof(int)), cudaMemcpyHostToDevice, stream1);
         cudaMemcpyAsync(mB_d,mB_h,(dimB[0]*dimA[1]*sizeof(int)), cudaMemcpyHostToDevice, stream2);
 
-        encontraMenor <<<blocksPerGridA,threadsPerBlock,0,stream1>>>(mA_d,menorA_d,dimA[0]*dimA[1]);
+        encontraMenor <<<blocksPerGridA,threadsPerBlock,0,stream1>>>(mA_d,&menorA_d,dimA[0]*dimA[1]);
         cudaMemcpy(menorA_h,menorA_d,sizeof(int), cudaMemcpyDeviceToHost);
 
-        encontraMenor <<<blocksPerGridB,threadsPerBlock,0,stream2>>>(mB_d,menorB_d,dimB[0]*dimB[1]);
+        encontraMenor <<<blocksPerGridB,threadsPerBlock,0,stream2>>>(mB_d,&menorB_d,dimB[0]*dimB[1]);
         cudaMemcpy(menorB_h,menorB_d,sizeof(int), cudaMemcpyDeviceToHost);
 
         cudaStreamSynchronize(stream1);
