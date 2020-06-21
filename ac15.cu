@@ -51,8 +51,8 @@ int main(int argc,char **argv)
 
         cudaMallocHost((void**)&mA_h,(dimA[0])*dimA[1]*(sizeof(int)));
         cudaMallocHost((void**)&mB_h,(dimB[0])*dimB[1]* (sizeof(int)));
-        cudaMallocHost((void**)&menorA_h,sizeof(int));
-        cudaMallocHost((void**)&menorB_h,sizeof(int));
+        cudaMallocHost((void*)&menorA_h,sizeof(int));
+        cudaMallocHost((void*)&menorB_h,sizeof(int));
 
 
 
@@ -68,8 +68,8 @@ int main(int argc,char **argv)
 
         cudaMalloc((void**)&mA_d,(dimA[0])*dimA[1]*(sizeof(int)));
         cudaMalloc((void**)&mB_d,(dimB[0])*dimB[1]* (sizeof(int)));
-        cudaMalloc((void**)&menorA_d,sizeof(int));
-        cudaMalloc((void**)&menorB_d,sizeof(int));
+        cudaMalloc((void*)&menorA_d,sizeof(int));
+        cudaMalloc((void*)&menorB_d,sizeof(int));
 
         //Inicializa o conteúdo da variável no device com 10000
         cudaMemset(menorA_d,10000,sizeof(int));
@@ -92,8 +92,8 @@ int main(int argc,char **argv)
         cudaStreamSynchronize(stream1);
         cudaStreamSynchronize(stream2);
 
-        printf("Menor valor da matriz A: %d\n", &menorA_h);
-        printf("Menor valor da matriz B: %d\n", &menorB_h);
+        printf("Menor valor da matriz A: %d\n", menorA_h);
+        printf("Menor valor da matriz B: %d\n", menorB_h);
 
         printf("Matriz A - Flatten\n");
         for(i=0;i<dimA[0];i++)
