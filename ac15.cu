@@ -51,8 +51,8 @@ int main(int argc,char **argv)
 
         cudaMallocHost((void**)&mA_h,(dimA[0])*dimA[1]*(sizeof(int)));
         cudaMallocHost((void**)&mB_h,(dimB[0])*dimB[1]* (sizeof(int)));
-        cudaMallocHost((void*)&menorA_h,sizeof(int));
-        cudaMallocHost((void*)&menorB_h,sizeof(int));
+        cudaMallocHost((void**)&menorA_h,sizeof(int));
+        cudaMallocHost((void**)&menorB_h,sizeof(int));
 
 
 
@@ -68,8 +68,8 @@ int main(int argc,char **argv)
 
         cudaMalloc((void**)&mA_d,(dimA[0])*dimA[1]*(sizeof(int)));
         cudaMalloc((void**)&mB_d,(dimB[0])*dimB[1]* (sizeof(int)));
-        cudaMalloc((void*)&menorA_d,sizeof(int));
-        cudaMalloc((void*)&menorB_d,sizeof(int));
+        cudaMalloc((void**)&menorA_d,sizeof(int));
+        cudaMalloc((void**)&menorB_d,sizeof(int));
 
         //Inicializa o conteúdo da variável no device com 10000
         cudaMemset(menorA_d,10000,sizeof(int));
