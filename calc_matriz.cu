@@ -27,6 +27,8 @@ FILE *abrir_arquivo(char nome[])
 
 int main(int argc,char **argv)
 {
+        if(argc < 2)
+            printf("Para utilizar, rode o comando ./calc_matriz <nome da entrada txt>");
         // Define as variaveis a serem utilizadas
         FILE *file;
         int *mA_h,*mB_h;
