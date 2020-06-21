@@ -51,8 +51,10 @@ int main(int argc,char **argv)
 
         cudaMallocHost((void**)&mA_h,(dimA[0])*dimA[1]*(sizeof(int)));
         cudaMallocHost((void**)&mB_h,(dimB[0])*dimB[1]* (sizeof(int)));
-        cudaMallocHost((void**)&menorA_h,sizeof(int));
-        cudaMallocHost((void**)&menorB_h,sizeof(int));
+        menorA_h=(int *) malloc(1*sizeof(int));
+        menorB_h=(int *) malloc(1*sizeof(int));
+        //cudaMallocHost((void**)&menorA_h,sizeof(int));
+        //cudaMallocHost((void**)&menorB_h,sizeof(int));
 
 
 
