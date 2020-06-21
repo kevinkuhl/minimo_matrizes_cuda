@@ -34,7 +34,7 @@ Exemplo de arquivo de matrizes:
 
 6 5 4
 
-Onde as duas primeiras linhas representam as dimensões da primeira e segunda matriz respectivamente.
+Onde as **duas primeiras linhas representam as dimensões da primeira e segunda matriz**, respectivamente.
 
 Para executar o programa, primeiro
 
