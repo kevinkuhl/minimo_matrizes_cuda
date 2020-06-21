@@ -24,8 +24,8 @@ Onde as duas primeiras linhas representam as dimensões da primeira e segunda ma
 
 Para executar o programa, primeiro
 
-\ $ make 
+$ make 
 
 Em seguida
 
-\ $ ./calc_matriz <nomeDaEntrada.txt>
+$ ./calc_matriz <nomeDaEntrada.txt>
